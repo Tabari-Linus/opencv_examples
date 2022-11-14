@@ -4,14 +4,12 @@ import cv2
 import numpy as np
 import face_recognition as face_rec
 
-
 # Image resize function
 def resize(img, size):
     width = int(img.shape[1]*size)
     height = int(img.shape[0]*size)
     dimension = (width,height)
     return cv2.resize(img, dimension, interpolation=cv2.INTER_AREA)
-
 
 #img declaration 
 linus = face_rec.load_image_file('images/linus.jpg')
@@ -22,7 +20,6 @@ linus_test = cv2.cvtColor(linus_test, cv2.COLOR_BGR2RGB)
 
 
 #finding face location
-
 faceLocat_linus = face_rec.face_locations(linus)[0]
 encodeface_linus = face_rec.face_encodings(linus)[0]
 cv2.rectangle(linus, (faceLocat_linus[3],faceLocat_linus[0],faceLocat_linus[1],faceLocat_linus[2]),(255,0,255), 2)
